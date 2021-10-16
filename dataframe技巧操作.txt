@@ -1,0 +1,58 @@
+df2=df.iloc[1:,:]  取其中部分行，该处表示从第二行开始
+# 查找某一列重复的行
+df[df.编号.duplicated()]
+
+# 查找「花色」缺失的行
+df[df.花色.isnull()]
+
+# 查找完全重复的行
+df[df.duplicated()]
+# 查找某一列重复的行
+df[df.编号.duplicated()]
+
+# 排除重复后，重新赋值给原来的数据框
+df = df.drop_duplicates()
+
+# 查找牌面的所有唯一值
+df.牌面.unique()
+# 查找「牌面」包含 30 的异常值
+df[df.牌面.isin(['30'])]
+
+# 查找王牌，模糊匹配   如果是大王，小王会匹配
+df[df.牌面.str.contains('王', na=False)]
+
+# 查找年龄在 1 到 5 之间的行
+df[df.年龄.between(1, 5)]
+
+# 查找年龄在 1 到 5 之间的行
+df[(df.年龄 >= 1)   & (df.年龄 <= 5)]
+
+# 按某一列排除重复，并保留最后一行
+df.drop_duplicates(['花色'], keep='last')
+
+# 删除包含缺失值的行
+df.dropna()
+
+# 删除全部为空的行
+df.dropna(how='all')
+
+# 删除包含缺失值的列
+df.dropna(axis=1)
+
+
+# 补全缺失值
+df.fillna('Joker')
+
+# 用后面的值填充
+df.fillna(method='bfill')
+
+# 按列自定义补全缺失值
+df.fillna({'花色': 0, '牌面': 1})
+
+# 重置索引
+df = df.reset_index()
+
+写入表，不写入index
+df.to_excel('完成清洗的扑克牌数据.xlsx',index=False)
+
+
