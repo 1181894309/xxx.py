@@ -21,14 +21,3 @@ print(filepath)      # C:/Users/admin/Desktop/1111.xlsx
 # print("+++++++++++++++++++++++++")
 # df2=df[df.目标3.between(1, 5)]
 
-
-法法规的
-是
-上的方法
-
-
-12132123
-阿斯顿发
-
-阿斯顿发
-上的方法
